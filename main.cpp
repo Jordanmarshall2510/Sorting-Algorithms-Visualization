@@ -47,8 +47,7 @@ void renderFunction()
 	for(int i = 0; i < array.size(); i++)
 	{
 		glBegin(GL_POLYGON);
-		
-		// + 1 so value of 0 has height of 1
+
 		float arrayIndexHeightRation = 2*(array[i] + 1)/l;
 		float widthIndexAdder = 2*i/l;
 
@@ -57,17 +56,11 @@ void renderFunction()
 		float bottomY = -1;
 		float topY    = bottomY + arrayIndexHeightRation;
 
-		// bottom left
 		glColor3f(0.0, 0.0, 0.0);
+
 		glVertex2f(leftX, bottomY);
-
-		// bottom right
 		glVertex2f(rightX, bottomY);
-
-		// top right
 		glVertex2f(rightX, topY);
-
-		// top left
 		glVertex2f(leftX, topY);
 
 		glEnd();
@@ -84,9 +77,6 @@ void insertionSort()
         key = array[i];  
         j = i - 1;  
   
-        /* Move elements of arr[0..i-1], that are  
-        greater than key, to one position ahead  
-        of their current position */
         while (j >= 0 && array[j] > key) 
         {  
             array[j + 1] = array[j];  
@@ -128,16 +118,17 @@ void selectionSort()
 {  
     int i, j, min_idx;  
   
-    // One by one move boundary of unsorted subarray  
     for (i = 0; i < array.size()-1; i++)  
-    {  
-        // Find the minimum element in unsorted array  
+    {   
         min_idx = i;  
-        for (j = i+1; j < array.size(); j++)  
-        if (array[j] < array[min_idx])  
-            min_idx = j;  
+        for (j = i+1; j < array.size(); j++)
+        {
+        	if (array[j] < array[min_idx])  
+        	{
+            	min_idx = j;
+        	} 
+        } 
   
-        // Swap the found minimum element with the first element  
         swap(&array[min_idx], &array[i]);
         renderFunction();
         usleep(delay);
@@ -149,23 +140,19 @@ void keyboardEvent(unsigned char c, int x, int y)
 {
 	if(c == 27)
 	{
-		// exit on escape key pressed
 		exit(0);
 	}
 	else if(c == 's')
 	{
-		// start on `s` key pressed
 		switch(algorithmNumber){
 
 			case 0: insertionSort(); break;
 			case 1: bubbleSort(); break;
 			case 2: selectionSort(); break;	
 		}
-		
 	}
 	else if(c == 'r')
 	{
-		// restart on `r` key pressed
 			createArray();
 			renderFunction();
 		
@@ -186,7 +173,7 @@ int main(int argc, char *argv[])
 	glutInitDisplayMode(GLUT_SINGLE);
 	glutInitWindowSize(length,length);
 	glutInitWindowPosition(100,100);
-	glutCreateWindow("Sort Visualization");
+	glutCreateWindow("Sorting Algorithm Visualization");
 
 	glutDisplayFunc(renderFunction);
 	glutKeyboardFunc(keyboardEvent);
