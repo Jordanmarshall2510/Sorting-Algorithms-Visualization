@@ -6,7 +6,7 @@
 
 #Input
 
-Go to the input.in file. In here you can change the delay and the type of sorting algorithm. These include:
+Go to the input.in file. In here you can change the length, delay and the type of sorting algorithm. These include:
 
 0. Insertion Sort
 1. Bubble Sort

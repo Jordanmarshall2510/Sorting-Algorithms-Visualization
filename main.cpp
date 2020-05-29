@@ -10,10 +10,10 @@
 
 using namespace std;
 
-int length = 500;
+int length;
 int delay;
 int algorithmNumber;
-vector <int> array (length);
+vector <int> array;
 
 void createArray()
 {
@@ -161,7 +161,9 @@ void keyboardEvent(unsigned char c, int x, int y)
 
 int main(int argc, char *argv[])
 {
-	cin >> delay >> algorithmNumber;
+	cin >> length >> delay >> algorithmNumber;
+
+	array.resize(length);
 
 	srand (time(NULL));
 
