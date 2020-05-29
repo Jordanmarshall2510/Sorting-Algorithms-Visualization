@@ -2,6 +2,7 @@
  A visualization of sorting algorithms using OpenGL
  
 #Compilation and Run
+
 ./run.sh
 
 #Input
@@ -16,7 +17,7 @@ Note: Windows need to be resized to view graph.
 
 #Shortcuts
 
-"s" to start sorting
-"r" to reset vector of numbers
-"ESC" to exit
+"s" to start sorting.
+"r" to reset vector of numbers.
+"ESC" to exit.
 
